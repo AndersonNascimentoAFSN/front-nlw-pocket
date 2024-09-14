@@ -1,2 +1,5 @@
 export * from './create-goal'
 export * from './empty-goals'
+export * from './summary'
+export * from './register-goal-button'
+export * from './in-orbit-icon'

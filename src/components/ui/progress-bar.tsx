@@ -1,4 +1,5 @@
 import * as ProgressPrimitive from '@radix-ui/react-progress'
+import { twMerge } from 'tailwind-merge'
 
 export function Progress(props: ProgressPrimitive.ProgressProps) {
   return (
@@ -10,12 +11,15 @@ export function Progress(props: ProgressPrimitive.ProgressProps) {
 }
 
 export function ProgressIndicator(
-  props: ProgressPrimitive.ProgressIndicatorProps
+  { className, ...props }: ProgressPrimitive.ProgressIndicatorProps
 ) {
   return (
     <ProgressPrimitive.Indicator
       {...props}
-      className="bg-gradient-to-r from-pink-500 to-violet-500 w-1/2 h-2 rounded-full"
+      className={twMerge(
+        'bg-gradient-to-r from-pink-500 to-violet-500 w-1/2 h-2 rounded-full',
+        className
+      )}
     />
   )
 }
