@@ -21,7 +21,7 @@ export function Summary({ summary, pendingGoals }: SummaryProps) {
   const firstDayOfWeek = dayjs().startOf('week').format('D MMMM')
   const lastDayOfWeek = dayjs().endOf('week').format('D MMMM')
 
-  const completedPercentage = Math.round((summary.completed / summary.total) * 100)
+  const completedPercentage = Math.round((summary?.completed / summary?.total) * 100)
   // console.log('ok', firstDayOfWeek.replace(/\b\w/g, l => l.toUpperCase()))
 
   return (
@@ -38,14 +38,14 @@ export function Summary({ summary, pendingGoals }: SummaryProps) {
       </div>
 
       <div className="flex flex-col gap-3">
-        <Progress value={summary.completed} max={summary.total} >
+        <Progress value={summary?.completed} max={summary?.total} >
           <ProgressIndicator
             style={{ width: `${completedPercentage}%` }}
           />
         </Progress>
 
         <div className="flex items-center justify-between text-xs text-zinc-400">
-          <span>Você completou <span className="text-zinc-100">{summary.completed}</span> de <span className="text-zinc-100">{summary.total}</span> metas nessa semana.</span>
+          <span>Você completou <span className="text-zinc-100">{summary?.completed}</span> de <span className="text-zinc-100">{summary?.total}</span> metas nessa semana.</span>
           <span>{completedPercentage}%</span>
         </div>
       </div>
@@ -57,7 +57,7 @@ export function Summary({ summary, pendingGoals }: SummaryProps) {
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-medium">Sua semana</h2>
 
-        {Object.entries(summary.goalsPerDay).map(([date, goals]) => {
+        {summary?.goalsPerDay && Object?.entries(summary?.goalsPerDay).map(([date, goals]) => {
           const weekDay = dayjs(date).format('dddd')
           const formattedDate = dayjs(date).format('D [de] MMMM')
 

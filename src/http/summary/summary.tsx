@@ -9,7 +9,7 @@ export type GoalsPerDayType = Record<string, Array<{
 export interface SummaryResponse {
   completed: number;
   total: number;
-  goalsPerDay: GoalsPerDayType;
+  goalsPerDay: GoalsPerDayType | null;
 }
 
 export function SummaryService(): Promise<SummaryResponse> {
